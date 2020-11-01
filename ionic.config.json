@@ -1,0 +1,7 @@
+{
+  "name": "biometrisk-adgangskontrol-camera",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
