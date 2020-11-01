@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  detectFaceUrl: 'http://localhost:7101/',
+  detectFaceUrl: 'http://localhost:7071/api/AnsigtAdgang',
 };
 
 /*
