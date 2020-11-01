@@ -26,7 +26,7 @@ export class TakePhotoComponent implements OnInit {
       this.image = of('./assets/images/spinner.gif');
 
       this.detectFaceService
-        .detectFace(photo.base64String)
+        .detectFace(photo)
         .pipe(delay(2000), first())
         .subscribe((detected: boolean) => {
           if (detected) {
