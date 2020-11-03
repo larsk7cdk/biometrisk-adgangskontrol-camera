@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { CameraPhoto } from '@capacitor/core';
+import { Guid } from 'guid-typescript';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,8 @@ export class DetectFaceService {
   constructor(private httpClient: HttpClient) {}
 
   detectFace(photo: CameraPhoto): Observable<boolean> {
-    const f = new File([photo.base64String], 'foo.jpg', { type: 'image/jpeg' });
+    const filename = Guid.create() + '.jpg';
+    const f = new File([photo.base64String], filename, { type: 'image/jpeg' });
 
     const formData = new FormData();
     formData.append('file', f);
