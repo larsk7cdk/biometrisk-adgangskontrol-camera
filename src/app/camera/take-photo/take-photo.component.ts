@@ -3,6 +3,7 @@ import { CameraService } from '../services/camera.service';
 import { DetectFaceService } from '../services/detect-face.service';
 import { delay, first } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+import { AccessControlResponse } from '../services/detect-face.interfaces';
 
 @Component({
   selector: 'app-take-photo',
@@ -27,9 +28,9 @@ export class TakePhotoComponent implements OnInit {
 
       this.detectFaceService
         .detectFace(photo)
-        .pipe(delay(2000), first())
-        .subscribe((detected: boolean) => {
-          if (detected) {
+        .pipe(first())
+        .subscribe((detected: AccessControlResponse) => {
+          if (detected.accessConfirmed) {
             this.image = of('./assets/images/checkmark.png');
           } else {
             this.image = of('./assets/images/stop.png');

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // detectFaceUrl: 'http://localhost:7071/api/AnsigtAdgang',
-  detectFaceUrl: 'http://localhost:7071/api/UploadPhoto',
+  detectFaceUrl: 'http://localhost:7071/api/AccessControl',
 };
 
 /*
