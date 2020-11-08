@@ -21,7 +21,8 @@ export class DetectFaceService {
 
     return this.httpClient.post<AccessControlResponse>(
       environment.detectFaceUrl,
-      formData
+      formData,
+      { withCredentials: true }
     );
   }
 }
