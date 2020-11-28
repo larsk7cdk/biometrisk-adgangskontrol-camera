@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CameraService } from '../services/camera.service';
 import { DetectFaceService } from '../services/detect-face.service';
-import { delay, first } from 'rxjs/operators';
+import { first } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { AccessControlResponse } from '../services/detect-face.interfaces';
 
@@ -27,7 +27,7 @@ export class TakePhotoComponent implements OnInit {
       this.image = of('./assets/images/spinner.gif');
 
       this.detectFaceService
-        .detectFace(photo)
+        .detectFace(photo, 'enter')
         .pipe(first())
         .subscribe((detected: AccessControlResponse) => {
           if (detected.accessConfirmed) {
